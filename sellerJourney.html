@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/default.css" type="text/css">
     <link rel="stylesheet" href="styles/jquery.animateSlider.css">
     <!-- Demo css -->
@@ -29,50 +30,55 @@
 </header>
 <div class="content-container">
 
-    <ul class="anim-slider">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-        <!-- Slide No1 -->
-        <li class="anim-slide">
-            <h1 id="slider">Animate Slider</h1>
-            <h2 id="plugin">jQuery Plugin</h2>
-            <h3 id="license">Cool Effects</h3>
-            <h4 id="version">v.1.0.6</h4>
-        </li>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-        <!-- Slide No2 -->
-        <li class="anim-slide">
-            <h3 id="todo">So what you can do ...</h3>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Congratulation!</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="anim-slider">
 
-            <h3 id="lightspeed">lightSpeedIn</h3>
-            <h4 id="zoomup">zoomInUpRight</h4>
-            <h4 id="bounceRight">bounceInDownRight</h4>
+                        <!-- Slide No2 -->
+                        <li class="anim-slide">
+                            <h3 id="todo">So what you can do ...</h3>
 
-            <h3 id="rollin">rollIn</h3>
-            <h4 id="fadeUp">fadeInUp</h4>
-            <h4 id="fadeDown">fadeInDown</h4>
+                            <h3 id="lightspeed">lightSpeedIn</h3>
+                            <h4 id="zoomup">zoomInUpRight</h4>
+                            <h4 id="bounceRight">bounceInDownRight</h4>
 
-            <h3 id="rotate">rotate</h3>
-            <h4 id="rotateRight">rotateInUpRight</h4>
-            <h4 id="rotateLeft">rotateInUpLeft</h4>
-        </li>
+                            <h3 id="rollin">rollIn</h3>
+                            <h4 id="fadeUp">fadeInUp</h4>
+                            <h4 id="fadeDown">fadeInDown</h4>
 
-        <!-- Slide No3 -->
-        <li class="anim-slide">
-            <img src="images/demo3/css3.png" alt="CSS3" id="css3">
-            <img src="images/demo3/html5.png" alt="HTML5" id="html5">
-            <img src="images/demo3/jquery.png" alt="jQuery" id="jquery">
-            <img src="images/demo3/modernizr.png" alt="Modernizr" id="modernizr">
-            <h2 id="animatecss">Animate.css</h2>
-        </li>
+                            <h3 id="rotate">rotate</h3>
+                            <h4 id="rotateRight">rotateInUpRight</h4>
+                            <h4 id="rotateLeft">rotateInUpLeft</h4>
+                        </li>
 
-        <!-- Arrows -->
-        <nav class="anim-arrows">
-            <span class="anim-arrows-prev"></span>
-            <span class="anim-arrows-next"></span>
-        </nav>
-        <!-- Dynamically created dots -->
+                        <!-- Arrows -->
+                        <nav class="anim-arrows">
+                            <span class="anim-arrows-prev"></span>
+                            <span class="anim-arrows-next"></span>
+                        </nav>
+                        <!-- Dynamically created dots -->
 
-    </ul>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 </div>
@@ -112,44 +118,18 @@
         </div>
     </div>
 </footer>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="JS/jquery.min.js"></script>
 <script src="JS/modernizr.js"></script>
 <script src="JS/jquery.animateSlider.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     $(".anim-slider").animateSlider(
         {
-            autoplay	:true,
+            autoplay	:false,
             interval	:5000,
             animations 	:
                 {
-                    0	: 	//Slide No1
-                        {
-                            h1	:
-                                {
-                                    show   	  : "bounceIn",
-                                    hide 	  : "zoomOutUpBig",
-                                    delayShow : "delay1s"
-                                },
-                            h2:
-                                {
-                                    show 	  : "fadeInUpLeftLarge",
-                                    hide 	  : "fadeOutDownBig",
-                                    delayShow : "delay1-5s"
-                                },
-                            h3 	:
-                                {
-                                    show   	  : "zoomInUpRightLarge",
-                                    hide 	  : "fadeOutRightBig",
-                                    delayShow : "delay1-5s"
-                                },
-                            h4:
-                                {
-                                    show 	  : "bounceInUp",
-                                    hide 	  : "fadeOutLeftBig",
-                                    delayShow : "delay2s"
-                                }
-                        },
-                    1	: //Slide No2
+                    0	: //Slide No2
                         {
                             "#todo":
                                 {
@@ -210,39 +190,6 @@
                                     show 	 	: "rotateInUpLeft",
                                     hide 	 	: "rotateOutDownLeft",
                                     delayShow 	: "delay6-5s"
-                                }
-                        },
-                    2	: //Slide No3
-                        {
-                            "img#css3"	:
-                                {
-                                    show 	  : "flipInY",
-                                    hide 	  : "flipOutY",
-                                    delayShow : "delay0-5s"
-                                },
-                            "img#html5"	:
-                                {
-                                    show 	  : "flipInY",
-                                    hide 	  : "flipOutY",
-                                    delayShow : "delay0-5s"
-                                },
-                            "img#jquery"  :
-                                {
-                                    show 	  : "bounceIn",
-                                    hide 	  : "flipOutY",
-                                    delayShow : "delay1-5s"
-                                },
-                            "img#modernizr" :
-                                {
-                                    show 	  : "rollIn",
-                                    hide 	  : "flipOutY",
-                                    delayShow : "delay2s"
-                                },
-                            "#animatecss"	:
-                                {
-                                    show 	  : "lightSpeedIn",
-                                    hide 	  : "flipOutY",
-                                    delayShow : "delay2-5s"
                                 }
                         }
                 }
