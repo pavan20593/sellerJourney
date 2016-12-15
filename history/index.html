@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/default.css" type="text/css">
+    <link rel="stylesheet" href="styles/jquery.animateSlider.css">
+    <!-- Demo css -->
+    <link rel="stylesheet" href="styles/font-awesome.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/demo.css">
+    <link href="http://fonts.googleapis.com/css?family=Kristi|Alegreya+Sans:300,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="styles/timelify.css">
+    <style>
+        .timeline h2 {
+            z-index: 0;
+        }
+        .timeline-image {
+            text-align: right;
+        }
+        .timeline-image img {
+            width: 81px;
+            display: block;
+        }
+        .timeline-image img.bbd {
+            width: 40%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<header id="header-container" class="pure-u-1">
+    <div class="header logged-in">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <div class="logo-container pure-u-1-4">
+                    <a>
+                        <img class="logo" src="https://img1a.flixcart.com/fk-sp-static/images/seller-hub-logo.png">
+                    </a>
+                    <a href="/logout" class="logout">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container" style="margin-top:10px">
+    <div class="timeline">
+        <h2>2016</h2>
+        <ul class="timeline-items">
+            <li class="is-hidden timeline-item"> <!-- Normal block, positionned to the left -->
+                <time></time>
+            </li>
+            <li class="is-hidden timeline-item"> <!-- Normal block, positionned to the left -->
+                <time>Feb 2013</time>
+            </li>
+        </ul>
+        <h2>2015</h2>
+        <ul class="timeline-items">
+            <li class="is-hidden timeline-item inverted"> <!-- Normal block, positionned to the right  -->
+                <time>March 2014</time>
+            </li>
+            <li class="is-hidden timeline-item inverted"> <!-- Centered block, positionned in the middle -->
+                <time>Jan 2014</time>
+            </li>
+
+        </ul>
+        <h2>2014</h2>
+        <ul class="timeline-items">
+            <li class="is-hidden timeline-item">
+               <h3>December 2014 3 pending actions in the year</h3>
+                <p class="timeline-image"><img class="bbd" src="/images/facepalm.jpg" alt=""></p>
+            </li>
+            <li class="is-hidden timeline-item inverted">
+               <h3>October 2014 First BBD</h3>
+                <p class="timeline-image"><img class="bbd" src="/images/kabali.png" alt=""></p>
+            </li>
+            <li class="is-hidden timeline-item">
+                <h3>June 2014</h3>
+                <time>You had your 100th Order</time>
+            </li>
+            <li class="is-hidden timeline-item">
+                <h3>Feb 2014</h3>
+                <p class="timeline-image"><img src="/images/first-order.jpeg" alt=""></p>
+                <time>Yayyyyy... You fulfilled your first Order</time>
+            </li>
+            <li class="is-hidden timeline-item inverted">
+                <h3>Title</h3>
+                <time>Jan 2014 SIGN UP</time>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer id="footer"><div class="footer">
+    <div class="footer-container">
+        <div id="footer-nav" class="nav-container">
+            <div id="UIF-6" class="navigation-default">
+                <div class="navigation">
+                    <ul class="horizontal-navigation">
+                        <li class="nav-item-href">
+                            <a class="nav-href" target="_blank" href="LearningCenter/policy/privacy-policy">Privacy policy</a>
+                        </li>
+                        <li class="nav-item-href">
+                            <a class="nav-href" target="_blank" href="LearningCenter/policy/terms-use">Terms of use</a>
+                        </li>
+                        <li class="nav-item-href">
+                            <a class="nav-href" target="_blank" href="LearningCenter/category/packaging">Packaging Guidelines</a>
+                        </li>
+                        <li class="nav-item-href">
+                            <a class="nav-href" target="_blank" href="LearningCenter">Help &amp; FAQs</a>
+                        </li>
+                        <li class="nav-item-href">
+                            <a class="nav-href" target="_blank" href="api-docs/fmsapi_index.html">API Documentation</a>
+                        </li>
+                        <li class="nav-item-href">
+                            <a class="nav-href" target="_blank" href="https://sandbox-api.flipkart.net/api-tools/#!/v2_orders">Interactive APIs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-container">
+            <div class="copyright">
+                <i class="fa fa-copyright"></i>
+                <span class="copyright-text">2016 Flipkart. All rights reserved.</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="JS/jquery.min.js"></script>
+<script src="JS/modernizr.js"></script>
+<script src="JS/jquery.animateSlider.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="JS/jquery.timelify.js"></script>
+<script>
+    $('.timeline').timelify({
+        animLeft: "fadeInLeft",
+        animCenter: "fadeInUp",
+        animRight: "fadeInRight",
+        animSpeed: 600,
+        offset: 150
+    });
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+</html>
