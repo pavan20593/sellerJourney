@@ -108,3 +108,48 @@
 .anim-dots{
     display: none;
 }
+
+.animation-container{
+    min-height: 350px;
+}
+#a1-year{
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+#a1-great{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+#a1-award{
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 38%;
+}
+
+
+.gold-ribbon, .blue-ribbon{
+    width: 65px;
+}
+
+#a1-award h4, #a1-award h2{
+    text-align: left;
+}
+
+#a1-award h2{
+    font-size: 45px;
+    margin-top: 10px;
+}
+
+#a1-award h4{
+    font-size: 25px;
+}
+.row2{
+    margin-top: 15px;
+}

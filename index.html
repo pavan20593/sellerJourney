@@ -5,30 +5,26 @@
     <title>Seller Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/default.css" type="text/css">
-    <link rel="stylesheet" href="styles/jquery.animateSlider.css">
-    <!-- Demo css -->
-    <link rel="stylesheet" href="styles/font-awesome.css">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/demo.css">
+    <link rel="stylesheet" href="styles/animate.css" type="text/css">
 </head>
 <body>
 <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '1791481951101885',
-            xfbml      : true,
-            version    : 'v2.8'
-        });
-        FB.AppEvents.logPageView();
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+//    window.fbAsyncInit = function() {
+//        FB.init({
+//            appId      : '1791481951101885',
+//            xfbml      : true,
+//            version    : 'v2.8'
+//        });
+//        FB.AppEvents.logPageView();
+//    };
+//
+//    (function(d, s, id){
+//        var js, fjs = d.getElementsByTagName(s)[0];
+//        if (d.getElementById(id)) {return;}
+//        js = d.createElement(s); js.id = id;
+//        js.src = "//connect.facebook.net/en_US/sdk.js";
+//        fjs.parentNode.insertBefore(js, fjs);
+//    }(document, 'script', 'facebook-jssdk'));
 </script>
 <header id="header-container" class="pure-u-1">
     <div class="header logged-in">
@@ -49,7 +45,7 @@
 <div class="content-container">
 
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open-modal">Open Modal</button>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -62,36 +58,35 @@
                     <h4 class="modal-title">Congratulation!</h4>
                 </div>
                 <div class="modal-body">
-                    <ul class="anim-slider">
-
-                        <!-- Slide No2 -->
-                        <li class="anim-slide">
-                            <h3 id="todo">So what you can do ...</h3>
-
-                            <h3 id="lightspeed">lightSpeedIn</h3>
-                            <h4 id="zoomup">zoomInUpRight</h4>
-                            <h4 id="bounceRight">bounceInDownRight</h4>
-
-                            <h3 id="rollin">rollIn</h3>
-                            <h4 id="fadeUp">fadeInUp</h4>
-                            <h4 id="fadeDown">fadeInDown</h4>
-
-                            <h3 id="rotate">rotate</h3>
-                            <h4 id="rotateRight">rotateInUpRight</h4>
-                            <h4 id="rotateLeft">rotateInUpLeft</h4>
-                        </li>
-
-                        <!-- Arrows -->
-                        <nav class="anim-arrows">
-                            <span class="anim-arrows-prev"></span>
-                            <span class="anim-arrows-next"></span>
-                        </nav>
-                        <!-- Dynamically created dots -->
-
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="animation-container">
+                        <h2 id="a1-year">YOUR LAST YEAR ON FLIPKART</h2>
+                        <div id="a1-great">
+                            <h3>ORDERS FULFILLED 	8500</h3>
+                            <h3>140% GROWTH OVER THE LAST YEAR</h3>
+                            <img src="assets/great.gif">
+                        </div>
+                        <div id="a1-award">
+                            <div>
+                                <div class="col-md-3">
+                                    <img class="gold-ribbon" src="assets/gold-ribbon.png">
+                                </div>
+                                <div class="col-md-9 pull-left">
+                                    <h4>Retained</h4>
+                                    <h2>GOLD</h2>
+                                    <h4>for 9 months</h4>
+                                </div>
+                            </div>
+                            <div class="row2">
+                                <div class="col-md-7">
+                                    <h2>RANKED</h2>
+                                    <h4>in your vertical</h4>
+                                </div>
+                                <div class="col-md-5 pull-left">
+                                    <img class="blue-ribbon pull-left" src="assets/blue-ribbon2.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -137,89 +132,72 @@
     </div>
 </footer>
 <script src="JS/jquery.min.js"></script>
-<script src="JS/modernizr.js"></script>
-<script src="JS/jquery.animateSlider.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-    $(".anim-slider").animateSlider(
+    $.fn.extend({
+        animateCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+
+    var animations = [
         {
-            autoplay	:false,
-            interval	:5000,
-            animations 	:
-                {
-                    0	: //Slide No2
-                        {
-                            "#todo":
-                                {
-                                    show 		: "fadeIn",
-                                    hide 		: "fadeOut",
-                                    delayShow   : "delay0-5s"
-                                },
-                            "#lightspeed" 	:
-                                {
-                                    show 	 	: "lightSpeedIn",
-                                    hide 	 	: "lightSpeedOut",
-                                    delayShow 	: "delay2s"
-                                },
-                            "#zoomup":
-                                {
-                                    show 	 	: "zoomInUpRightBig",
-                                    hide 	 	: "bounceOutLeft",
-                                    delayShow 	: "delay2-5s"
-                                },
-                            "#bounceRight":
-                                {
-                                    show 	 	: "bounceInDownRightLarge",
-                                    hide 	 	: "bounceOutRight",
-                                    delayShow 	: "delay3s"
-                                },
-                            "#rollin" :
-                                {
-                                    show 	 	: "rollIn",
-                                    hide 	 	: "rollOut",
-                                    delayShow 	: "delay3-5s"
-                                },
-                            "#fadeUp":
-                                {
-                                    show 	 	: "fadeInUpBig",
-                                    hide 	 	: "hinge",
-                                    delayShow 	: "delay4s"
-                                },
-                            "#fadeDown":
-                                {
-                                    show 	 	: "fadeInDownBig",
-                                    hide 	 	: "fadeOutDownBig",
-                                    delayShow 	: "delay4-5s"
-                                },
-                            "#rotate" :
-                                {
-                                    show 	 	: "rotateIn",
-                                    hide 	 	: "rotateOut",
-                                    delayShow 	: "delay5-5s"
-                                },
-                            "#rotateRight" :
-                                {
-                                    show 	 	: "rotateInUpRight",
-                                    hide 	 	: "rotateOutDownRight",
-                                    delayShow 	: "delay6s"
-                                },
-                            "#rotateLeft" :
-                                {
-                                    show 	 	: "rotateInUpLeft",
-                                    hide 	 	: "rotateOutDownLeft",
-                                    delayShow 	: "delay6-5s"
-                                }
-                        }
-                }
-        });
+            id: '#a1-year',
+            show: 'lightSpeedIn',
+            hide: 'fadeOutUpBig'
+        },
+        {
+            id: '#a1-great',
+            show: 'zoomInDown',
+            hide: 'zoomOutLeft'
+        },
+        {
+            id: '#a1-award',
+            show: 'flipOutX',
+            hide: 'fadeOutDownBig'
+        }
+    ];
+
+    $('#open-modal').on('click', function() {
+        var i = 0,
+            l = animations[i++],
+            id = l.id;
+        $(id).show();
+        $(id).animateCss(l.show);
+        setTimeout(function () {
+            $(id).animateCss(l.hide);
+            setTimeout(function () {
+                $(id).hide();
+            }, 1000);
+        }, 2500);
+        var setTime = setInterval(function () {
+            l = animations[i++];
+            if(!l){
+                clearInterval(setTime);
+            } else {
+                id = l.id;
+                $(id).show();
+                $(id).animateCss(l.show);
+                setTimeout(function () {
+                    $(id).animateCss(l.hide);
+                    setTimeout(function () {
+                        $(id).hide();
+                    }, 1000);
+                }, 2500);
+            }
+        }, 3600);
+    })
 </script>
 <script>
-    document.getElementById('shareBtn').onclick = function() {
-        FB.ui({
-            method: 'share',
-            display: 'popup',
-            href: 'https://developers.facebook.com/docs/',
-        }, function(response){});
-    }
+//    document.getElementById('shareBtn').onclick = function() {
+//        FB.ui({
+//            method: 'share',
+//            display: 'popup',
+//            href: 'https://developers.facebook.com/docs/',
+//        }, function(response){});
+//    }
 </script>
 </html>
