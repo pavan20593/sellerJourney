@@ -28,7 +28,7 @@
     color: #fff;
 }
 .content-container {
-    margin-top: 200px;
+    margin-top: 90px;
 }
 .content-container div {
     text-align: center;
@@ -107,6 +107,40 @@
 
 .anim-dots{
     display: none;
+}
+
+.banner {
+    width: 100%;
+    text-align: left !important;
+    background: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    height: 90px;
+    background: url(/images/c2.gif);
+}
+.banner-text {
+    float: left;
+    padding-top: 17px;
+    padding-left: 8px;
+}
+.celebration-banner {
+    float: right;
+    width: 84%;
+    height: 90px;
+
+}
+html {
+    height: 100%;
+}
+body {
+    background: #eaeaea !important;
+    height: 100%;
+}
+.modal-button {
+    margin-top: 30px;
+}
+.clear {
+    clear: both;
 }
 
 .animation-container{
