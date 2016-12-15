@@ -49,8 +49,14 @@
         <div class="clear"></div>
     </div>
 
+
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open-modal">Open Modal</button>
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#badgeModal" id="open-badge-modal">Badge Modal</button>
+    <a class="twitter-hashtag-button"
+       href="https://twitter.com/intent/tweet?button_hashtag=#flipkart">
+        Tweet#Flipkart</a>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -97,6 +103,42 @@
 
         </div>
     </div>
+    <div id="badgeModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Congratulation!</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="animation-container">
+                        <h2 id="a1-badgeTitle">YOUR EARNED THIS PRESTIGIOUS BADGE</h2>
+                        <div id="a1-badge">
+                            <img src="assets/photorajni.jpg">
+                        </div>
+                        <div id="a1-badge-summary">
+                            <img src="assets/photorajni.jpg" style="float:left">
+                            <div id="a1-badge-description">
+                                <h3 class="badge-stats"> POINTS <h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" id="timeline" data-badge="timeline">TimeLine</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" id="shareBtn" data-badge="perfectOrders">SHARE</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 </div>
@@ -134,6 +176,9 @@
                 <span class="copyright-text">2016 Flipkart. All rights reserved.</span>
             </div>
         </div>
+
+
+
     </div>
 </footer>
 <script src="JS/jquery.min.js"></script>
@@ -164,7 +209,25 @@
             show: 'flipOutX',
             hide: 'fadeOutDownBig'
         }
-    ];
+
+    ],
+            badgeAnimations = [
+                {
+                    id: '#a1-badgeTitle',
+                    show: 'lightSpeedIn',
+                    hide: 'fadeOutUpBig'
+                },
+                {
+                    id: '#a1-badge',
+                    show: 'zoomInDown',
+                    hide: 'zoomOutLeft'
+                },
+                {
+                    id: '#a1-badge-summary',
+                    show: 'lightSpeedIn'
+                }
+
+            ];
 
     $('#open-modal').on('click', function() {
         var i = 0,
@@ -194,15 +257,90 @@
                 }, 2500);
             }
         }, 3600);
+    });
+
+    $('#open-badge-modal').on('click', function() {
+        var i = 0,
+                l = badgeAnimations[i++],
+                id = l.id;
+        $("#a1-badge-summary").css("display", "none");
+        $(id).show();
+        $(id).animateCss(l.show);
+        setTimeout(function () {
+            $(id).animateCss(l.hide);
+            setTimeout(function () {
+                $(id).hide();
+            }, 1000);
+        }, 2500);
+        var setTime = setInterval(function () {
+            l = badgeAnimations[i++];
+            if(!l){
+
+            }else{
+                id = l.id;
+                $(id).show();
+                $(id).animateCss(l.show);
+                setTimeout(function () {
+                    if(i != badgeAnimations.length){
+                        $(id).animateCss(l.hide);
+                        setTimeout(function () {
+                            $(id).hide();
+                        }, 1000);
+                    }
+                }, 2500);
+            }
+        }, 3600);
     })
 </script>
 <script>
+
+    var oldUrl = 'https://s23.postimg.org/x08w2dh23/BIA_Police_Officer_Badge.jpg',
+        newUrl,
+            badge, caption, description, title;
+
+    if(($("#shareBtn").data("badge")) == 'perfectOrders') {
+        newUrl = 'https://s29.postimg.org/qw61z06nb/photorajni.jpg';
+        caption = "I HAVE 80% perfect Order Rate";
+        description = "This is a great Achivement";
+        title = "PERFECT ORDERS"
+    }
+
+
     document.getElementById('shareBtn').onclick = function() {
-        FB.ui({
-            method: 'share',
-            display: 'popup',
-            href: 'https://developers.facebook.com/docs/',
-        }, function(response){});
+        scrapeLink(oldUrl).done(function(){
+            //now the link should be scraped/rescraped and ready to use
+        });
+        FB.ui(
+                {
+                    method: 'share',
+                    href: "www.google.com",     // Redirect URL
+                    title: title,  // Main Caption
+                    picture: newUrl, //Image URL
+                    caption: caption,
+                    description: description,
+                    hashtag: ['#flipkart','flipkartPerfectOrders']
+                },
+                function(response){
+                    // your code to manage the response
+                });
+        }
+
+        oldUrl = newUrl;
+
+
+    function scrapeLink(url){
+        var masterdfd = $.Deferred();
+        FB.api('https://graph.facebook.com/', 'post', {
+            id: oldUrl,
+            scrape: true
+        }, function(response) {
+            if(!response || response.error){
+                masterdfd.reject(response);
+            }else{
+                masterdfd.resolve(response);
+            }
+        });
+        return masterdfd;
     }
 </script>
 </html>
