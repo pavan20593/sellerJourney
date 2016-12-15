@@ -149,8 +149,8 @@ body {
 #a1-year{
     display: none;
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 20%;
+    left: 33%;
 }
 #a1-great{
     display: none;
@@ -167,13 +167,76 @@ body {
     left: 38%;
 }
 
+#a1-orders{
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 38%;
+}
+
+
+#a1-orders h4, #a1-orders h2, #a1-orders h3{
+    text-align: center;
+}
+
+#a1-orders h4{
+    font-size: 25px;
+}
+#a1-orders h3{
+    font-size: 35px;
+    border-bottom: 6px double black;
+    margin-bottom: 0px;
+}
+
 
 .gold-ribbon, .blue-ribbon{
     width: 65px;
 }
+#a1-orders h1{
+    font-size: 85px;
+    margin-top: 10px;
+}
+
+#a1-perfect-orders{
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+
+#a1-perfect-orders h1{
+    font-size: 100px;
+    margin-top: 0px;
+}
+
+#a1-perfect-orders h3{
+    font-size: 50px;
+}
+
+.perfect-ribbon{
+    height: 85px;
+}
+
+#a1-final{
+    display: none;
+    padding: 20px;
+}
+
+#a1-great h4, #a1-great h2, #a1-year h4, #a1-year h2{
+    text-align: left;
+}
 
 #a1-award h4, #a1-award h2{
     text-align: left;
+}
+
+#a1-great h2, #a1-year h2{
+    font-size: 45px;
+    margin-top: 10px;
+}
+
+#a1-great h4, #a1-year h4{
+    font-size: 25px;
 }
 
 #a1-award h2{
@@ -184,8 +247,86 @@ body {
 #a1-award h4{
     font-size: 25px;
 }
+
 .row2{
-    margin-top: 15px;
+    margin-top: 30px;
+}
+
+.blue-ribbon{
+    height: 154px;
+}
+
+#a1-great .col-md-7{
+    padding-top: 20px;
+}
+#a1-great .col-md-5{
+    padding-left: 0px;
+}
+
+#a1-orders1{
+    width: 45%;
+    float: left;
+}
+
+#a1-perfect-orders1{
+    width: 45%;
+    float: right;
+}
+
+
+#a1-great1 h4, #a1-great1 h2, #a1-year1 h4, #a1-year1 h2{
+    text-align: left;
+}
+#a1-year1 h2{
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+#a1-year1 h4{
+    font-size: 25px;
+}
+
+#a1-great1 h2{
+    font-size: 40px;
+    margin-top: 25px;
+}
+
+#a1-great1 h4{
+    font-size: 21px;
+}
+#a1-orders1 h3{
+    font-size: 30px;
+}
+
+#a1-orders1 h1{
+    font-size: 55px;
+    margin-top: 10px;
+}
+
+#a1-orders1 h4{
+    font-size: 21px;
+}
+
+#a1-perfect-orders1 .col-md-5{
+    padding-left: 0;
+}
+
+#a1-perfect-orders1 .col-md-4{
+    padding-right: 0;
+}
+
+#a1-perfect-orders1 h1{
+    font-size: 80px;
+}
+
+#a1-perfect-orders1 h3{
+    font-size: 35px;
+    text-align: center;
+    width: 75%;
+}
+
+#a1-perfect-orders1 .perfect-ribbon{
+    height: 100px;
 }
 
 #a1-badgeTitle{

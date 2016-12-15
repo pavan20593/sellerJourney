@@ -70,34 +70,97 @@
                 </div>
                 <div class="modal-body">
                     <div class="animation-container">
-                        <h2 id="a1-year">YOUR LAST YEAR ON FLIPKART</h2>
-                        <div id="a1-great">
-                            <h3>ORDERS FULFILLED 	8500</h3>
-                            <h3>140% GROWTH OVER THE LAST YEAR</h3>
-                            <img src="assets/great.gif">
+                        <div id="a1-year">
+                            <div class="col-md-5">
+                                <img class="gold-ribbon" src="assets/gold.png">
+                            </div>
+                            <div class="col-md-7 pull-left">
+                                <h4>Retained</h4>
+                                <h2>GOLD</h2>
+                                <h4>for 9 months</h4>
+                            </div>
                         </div>
-                        <div id="a1-award">
-                            <div>
-                                <div class="col-md-3">
-                                    <img class="gold-ribbon" src="assets/gold-ribbon.png">
+
+                        <div id="a1-great">
+                            <div class="col-md-7">
+                                <h2>RANKED</h2>
+                                <h4>in your vertical</h4>
+                            </div>
+                            <div class="col-md-5 pull-left">
+                                <img class="blue-ribbon pull-left" src="assets/runkeeper.png">
+                            </div>
+                        </div>
+
+                        <div id="a1-orders">
+                            <h3>12000 Orders</h3>
+                            <h1>400%</h1>
+                            <h4>more than last year</h4>
+                        </div>
+
+                        <div id="a1-perfect-orders">
+                            <div class="col-md-3">
+                                <img class="perfect-ribbon pull-left" src="assets/perfect_order.png">
+                            </div>
+                            <div class="col-md-9">
+                                <h1>80%</h1>
+                            </div>
+                            <h3>Perfect Orders</h3>
+                        </div>
+
+                        <div id="a1-final">
+                            <div class="row">
+                                <div id="a1-year1"  class="col-md-6">
+                                    <div class="col-md-4">
+                                        <img class="gold-ribbon" src="assets/gold.png">
+                                    </div>
+                                    <div class="col-md-6 pull-left">
+                                        <h4>Retained</h4>
+                                        <h2>GOLD</h2>
+                                        <h4>for 9 months</h4>
+                                    </div>
                                 </div>
-                                <div class="col-md-9 pull-left">
-                                    <h4>Retained</h4>
-                                    <h2>GOLD</h2>
-                                    <h4>for 9 months</h4>
+
+                                <div id="a1-great1"  class="col-md-6">
+                                    <div class="col-md-5">
+                                        <h2>RANKED</h2>
+                                        <h4>in your vertical</h4>
+                                    </div>
+                                    <div class="col-md-5 pull-left">
+                                        <img class="blue-ribbon pull-left" src="assets/runkeeper.png">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row2">
-                                <div class="col-md-7">
-                                    <h2>RANKED</h2>
-                                    <h4>in your vertical</h4>
+
+                            <div class="row2 row">
+                                <div id="a1-orders1" class="col-md-6">
+                                    <h3>12000 Orders</h3>
+                                    <h1>400%</h1>
+                                    <h4>more than last year</h4>
                                 </div>
-                                <div class="col-md-5 pull-left">
-                                    <img class="blue-ribbon pull-left" src="assets/blue-ribbon2.png">
+
+                                <div id="a1-perfect-orders1" class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img class="perfect-ribbon pull-left" src="assets/perfect_order.png">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <h1>80%</h1>
+                                        </div>
+                                        <h3>Perfect Orders</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" id="timeline" data-badge="timeline">TimeLine</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" id="shareBtn" data-badge="anniversary">SHARE</button>
+                    </div>
+
                 </div>
             </div>
 
@@ -205,9 +268,19 @@
             hide: 'zoomOutLeft'
         },
         {
-            id: '#a1-award',
+            id: '#a1-orders',
             show: 'flipOutX',
             hide: 'fadeOutDownBig'
+        },
+        {
+            id: '#a1-perfect-orders',
+            show: 'lightSpeedIn',
+            hide: 'fadeOutLeftBig'
+        },
+        {
+            id: '#a1-final',
+            show: 'zoomIn',
+            hide: ''
         }
 
     ],
@@ -232,7 +305,11 @@
     $('#open-modal').on('click', function() {
         var i = 0,
             l = animations[i++],
-            id = l.id;
+            id = l.id,
+            lastId = animations[animations.length - 1].id;
+
+        $(lastId).hide();
+
         $(id).show();
         $(id).animateCss(l.show);
         setTimeout(function () {
@@ -249,12 +326,14 @@
                 id = l.id;
                 $(id).show();
                 $(id).animateCss(l.show);
-                setTimeout(function () {
-                    $(id).animateCss(l.hide);
+                if(l.hide) {
                     setTimeout(function () {
-                        $(id).hide();
-                    }, 1000);
-                }, 2500);
+                        $(id).animateCss(l.hide);
+                        setTimeout(function () {
+                            $(id).hide();
+                        }, 1000);
+                    }, 2500);
+                }
             }
         }, 3600);
     });
@@ -303,6 +382,13 @@
         caption = "I HAVE 80% perfect Order Rate";
         description = "This is a great Achivement";
         title = "PERFECT ORDERS"
+    }
+
+    if(($("#shareBtn").data("badge")) == 'anniversary') {
+        newUrl = 'https://s29.postimg.org/d2yvmopgn/main_anniversary.png';
+        caption = "Its been a Great Journey";
+        description = "Its not about Journey";
+        title = "ANNIVERSARY TIMES"
     }
 
 
