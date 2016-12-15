@@ -2,38 +2,15 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-<<<<<<< Updated upstream
     <title>Seller Dashboard</title>
     <link rel="stylesheet" href="styles/default.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="styles/jquery.animateSlider.css">
     <!-- Demo css -->
     <link rel="stylesheet" href="styles/font-awesome.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/demo.css">
-</head>
-<body>
-<header id="header-container" class="pure-u-1">
-    <div class="header logged-in">
-        <div class="container pure-g">
-            <div class="pure-u-1">
-                <div class="logo-container pure-u-1-4">
-                    <a>
-                        <img class="logo" src="https://img1a.flixcart.com/fk-sp-static/images/seller-hub-logo.png">
-                    </a>
-                    <a href="/logout" class="logout">
-                        Logout
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<div class="content-container">
-=======
-    <title>Seller Journey</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
 </head>
 <body>
 <script>
@@ -54,23 +31,23 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-
-<h1> hello</h1>
-<div id="shareBtn" class="btn btn-success clearfix">Share</div>
-
-
-<script src="https://code.jquery.com/jquery-3.1.1.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-<script>
-    document.getElementById('shareBtn').onclick = function() {
-        FB.ui({
-            method: 'share',
-            display: 'popup',
-            href: 'https://developers.facebook.com/docs/',
-        }, function(response){});
-    }
-</script>
->>>>>>> Stashed changes
+<header id="header-container" class="pure-u-1">
+    <div class="header logged-in">
+        <div class="container pure-g">
+            <div class="pure-u-1">
+                <div class="logo-container pure-u-1-4">
+                    <a>
+                        <img class="logo" src="https://img1a.flixcart.com/fk-sp-static/images/seller-hub-logo.png">
+                    </a>
+                    <a href="/logout" class="logout">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="content-container">
 
     <ul class="anim-slider">
 
@@ -290,5 +267,16 @@
                     }
                 }
             });
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script>
+    document.getElementById('shareBtn').onclick = function() {
+        FB.ui({
+            method: 'share',
+            display: 'popup',
+            href: 'https://developers.facebook.com/docs/',
+        }, function(response){});
+    }
 </script>
 </html>
