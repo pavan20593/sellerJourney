@@ -190,7 +190,8 @@ body {
 
 
 .gold-ribbon, .blue-ribbon{
-    width: 65px;
+    width: 100px;
+    height: 100%;
 }
 #a1-orders h1{
     font-size: 85px;
@@ -220,6 +221,7 @@ body {
 #a1-final{
     display: none;
     padding: 20px;
+    position: relative;
 }
 
 #a1-great h4, #a1-great h2, #a1-year h4, #a1-year h2{
@@ -254,6 +256,7 @@ body {
 
 .blue-ribbon{
     height: 154px;
+    width: 150px;
 }
 
 #a1-great .col-md-7{
@@ -354,4 +357,33 @@ body {
     position: absolute;
     top:30%;
     right:30%;
+}
+
+.modal-logo{
+    position: absolute;
+    bottom: 35px;
+    right: 0;
+}
+
+.modal-logo img{
+    width: 150px;
+    height: 45px
+}
+
+.modal-header{
+    background-color: #027CD5;
+    color: #fff;
+    border-radius: 9px 9px 0 0;
+}
+
+.modal-content{
+    border-radius: 10px;
+}
+
+.modal-body{
+    overflow: hidden;
+}
+
+#shareBtnAnniversary, #shareBtnMilestones{
+    margin-right: 10px;
 }
