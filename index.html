@@ -155,7 +155,7 @@
                         <a type="button" href="history/index.html" class="btn btn-primary" id="timeline" data-badge="timeline">TimeLine</a>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-primary" id="shareBtn" data-badge="anniversary">SHARE</button>
+                        <button type="button" class="btn btn-primary" id="shareBtnAnniversary" data-badge="anniversary">SHARE</button>
                     </div>
 
                 </div>
@@ -191,7 +191,7 @@
                         <a type="button" href="history/index.html" class="btn btn-primary" id="timeline" data-badge="timeline">TimeLine</a>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-primary" id="shareBtn" data-badge="perfectOrders">SHARE</button>
+                        <button type="button" class="btn btn-primary" id="shareBtnMilestones" data-badge="perfectOrders">SHARE</button>
                     </div>
 
                 </div>
@@ -370,25 +370,10 @@
 <script>
 
     var oldUrl = 'https://s23.postimg.org/x08w2dh23/BIA_Police_Officer_Badge.jpg',
-        newUrl,
-            badge, caption, description, title;
-
-    if(($("#shareBtn").data("badge")) == 'perfectOrders') {
-        newUrl = 'https://s29.postimg.org/qw61z06nb/photorajni.jpg';
-        caption = "I HAVE 80% perfect Order Rate";
-        description = "This is a great Achivement";
-        title = "PERFECT ORDERS"
-    }
-
-    if(($("#shareBtn").data("badge")) == 'anniversary') {
-        newUrl = 'https://s29.postimg.org/d2yvmopgn/main_anniversary.png';
-        caption = "Its been a Great Journey";
-        description = "Its not about Journey";
-        title = "ANNIVERSARY TIMES"
-    }
+        newUrl;
 
 
-    document.getElementById('shareBtn').onclick = function() {
+    document.getElementById('shareBtnMilestones').onclick = function() {
         scrapeLink(oldUrl).done(function(){
             //now the link should be scraped/rescraped and ready to use
         });
@@ -396,16 +381,35 @@
                 {
                     method: 'share',
                     href: "www.google.com",     // Redirect URL
-                    title: title,  // Main Caption
-                    picture: newUrl, //Image URL
-                    caption: caption,
-                    description: description,
-                    hashtag: ['#flipkart','flipkartPerfectOrders']
+                    title: "PERFECT ORDERS",  // Main Caption
+                    picture: 'https://s29.postimg.org/qw61z06nb/photorajni.jpg', //Image URL
+                    caption: "Its been a Great Journey",
+                    description: "Its not about Journey",
+                    hashtag: '#flipkart'
                 },
                 function(response){
                     // your code to manage the response
                 });
         }
+
+    document.getElementById('shareBtnAnniversary').onclick = function() {
+        scrapeLink(oldUrl).done(function(){
+            //now the link should be scraped/rescraped and ready to use
+        });
+        FB.ui(
+                {
+                    method: 'share',
+                    href: "www.google.com",     // Redirect URL
+                    title: "ANNIVERSARY TIMES",  // Main Caption
+                    picture: 'https://s29.postimg.org/d2yvmopgn/main_anniversary.png', //Image URL
+                    caption: "Its been a Great Journey",
+                    description:"Its not about Journey",
+                    hashtag: '#flipkart'
+                },
+                function(response){
+                    // your code to manage the response
+                });
+    }
 
         oldUrl = newUrl;
 
