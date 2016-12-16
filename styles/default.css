@@ -390,3 +390,15 @@ body {
 #shareBtnAnniversary, #shareBtnMilestones{
     margin-right: 10px;
 }
+
+#shareBtnMilestones, #shareBtnAnniversary {
+    background: url(/images/fb.png);
+    border: 0;
+    width: 67px;
+    height: 38px;
+    background-size: 36px;
+    background-repeat: no-repeat;
+    background-position-x: 28px;
+    background-position-y: -1px;
+    outline: none;
+}

@@ -118,7 +118,7 @@
                 <div class="modal-footer">
                     <div class="col-md-12">
                         <a type="button" href="history" class="btn btn-primary pull-right" id="timeline" data-badge="timeline">TimeLine</a>
-                        <button type="button" class="btn btn-primary pull-right" id="shareBtnAnniversary" data-badge="anniversary">SHARE</button>
+                        <button type="button" class="btn btn-primary pull-right" id="shareBtnAnniversary" data-badge="anniversary"></button>
                     </div>
 
                 </div>
@@ -139,7 +139,7 @@
                     <div class="animation-container">
                         <h2 id="a1-badgeTitle">YOUR EARNED THIS PRESTIGIOUS BADGE</h2>
                         <div id="a1-badge">
-                            <img src="assets/photorajni.jpg">
+                            <img src="assets/photo.png">
                         </div>
                         <div id="a1-badge-summary">
                             <img src="assets/photorajni.jpg" style="float:left">
@@ -152,7 +152,7 @@
                 <div class="modal-footer">
                     <div class="col-md-12">
                         <a type="button" href="history" class="btn btn-primary pull-right" id="timeline" data-badge="timeline">TimeLine</a>
-                        <button type="button" class="btn btn-primary pull-right" id="shareBtnMilestones" data-badge="perfectOrders">SHARE</button>
+                        <button type="button" class="btn btn-primary pull-right" id="shareBtnMilestones" data-badge="perfectOrders"></button>
                     </div>
 
                 </div>
@@ -294,13 +294,14 @@
         $("#a1-badge-summary").css("display", "none");
         $(id).show();
         $(id).animateCss(l.show);
-    })
+    });
+
+    var  name = localStorage.getItem('name');
 
     function openModalOnLogin() {
         var  name = localStorage.getItem('name');
         if(name == "sudeep") {
             $('#open-badge-modal').click();
-//            $('.banner').css('background', "url(/images/c3.gif)");
         }
         if(name == "amazestore") {
             $('#open-modal').click();
@@ -309,10 +310,15 @@
             $('.header').css('background', "url(/images/christmas.gif)");
             $('.footer').css('background', "url(/images/christmas.gif)");
             $('.banner').css('background', "#fff");
-//            $('.banner-text').css('color', "#fff");
         }
     }
-    openModalOnLogin();
+
+    if(name == "nishant") {
+        openModalOnLogin();
+    } else {
+        setTimeout(openModalOnLogin, 1000);
+    }
+
     $('.banner').click(function(){
         openModalOnLogin();
     });
@@ -331,12 +337,12 @@
         FB.ui(
                 {
                     method: 'share',
-                    href: "www.google.com",     // Redirect URL
+                    href: "www.flipkart.com",     // Redirect URL
                     title: "PERFECT ORDERS",  // Main Caption
-                    picture: 'https://s29.postimg.org/qw61z06nb/photorajni.jpg', //Image URL
+                    picture: 'https://s24.postimg.org/fz1jua091/badge_youre_the_boss.png', //Image URL
                     caption: "Its been a Great Journey",
                     description: "Its not about Journey",
-                    hashtag: '#flipkart'
+                    hashtag: '#Flipkart #MpcHackDay'
                 },
                 function(response){
                     // your code to manage the response
@@ -350,9 +356,9 @@
         FB.ui(
                 {
                     method: 'share',
-                    href: "www.google.com",     // Redirect URL
+                    href: "www.flipkart.com",     // Redirect URL
                     title: "ANNIVERSARY TIMES",  // Main Caption
-                    picture: 'https://s29.postimg.org/d2yvmopgn/main_anniversary.png', //Image URL
+                    picture: 'https://s23.postimg.org/jsk7lyc3v/final_certificate.png', //Image URL
                     caption: "Its been a Great Journey",
                     description:"Its not about Journey",
                     hashtag: '#flipkart'
